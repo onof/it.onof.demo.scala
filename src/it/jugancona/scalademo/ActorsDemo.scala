@@ -13,7 +13,7 @@ object ActorsDemo {
 						println("received message: "+ msg)
 				}
 			}
-		}
+		}	
 		
 		echoActor ! "Hello world!"
 		echoActor ! "Hi guys"

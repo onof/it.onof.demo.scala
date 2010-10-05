@@ -37,7 +37,7 @@ object EvaluatorDemo {
 							Var("variable2")),
 					"+", 
 					Number(0)
-					)
+				)
 
 		var evaluator = new Evaluator(Map(
 				"variable1" -> -5,
