@@ -25,4 +25,8 @@ object ReactiveSwingApp extends SimpleGUIApplication {
 				label.text = "Number of button clicks: "+ nClicks
 		}
 	}
+	
+	override def main(args: Array[String]): Unit = {
+	   super.main(args)
+	}
 }
