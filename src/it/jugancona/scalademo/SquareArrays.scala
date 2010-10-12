@@ -28,6 +28,8 @@ object SquareArrays {
 	  val squareSum = (0.0 /: square1)(_ + _)
 	  println("Square sum: " + squareSum)
 	  
+	  // or:
+	  println("Square sum (2): " + square1.reduceLeft(_ + _))
 	  
 	  /*
 	  println("Square sum: " + 
