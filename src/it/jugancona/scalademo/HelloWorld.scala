@@ -1,7 +1,7 @@
 package it.jugancona.scalademo
 
 class HelloWorld {
-	println("Hello, World !")
+	println("Hello World !")
 }
 
 object Hello {

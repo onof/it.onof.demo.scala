@@ -21,19 +21,17 @@ class ImpFunc1(elements : List[String]) {
 		//	println(row)
 	}
 	
-	def tupled = elements.indices
-						.map( a => (a, elements(a)))
-	
+
     // Separa logica da formattazione
 	def printElementsFuncTupled() {
-		val formatted = tupled
-							.map(t => "Element " + t._1 + " = " + t._2 )
+		val formatted = elements.zip(elements.indices)
+							.map(t => "Element " + t._2 + " = " + t._1 )
 		formatted.foreach(println(_))
 	}
 	
 	// Soluzione ideale: SENZA side-effects
-	def printString = tupled
-		.map(t => "Element " + t._1 + " = " + t._2 )
+	def printString = elements.zipWithIndex
+		.map(t => "Element " + t._2 + " = " + t._1 )
 		.mkString("\n")
 }
 

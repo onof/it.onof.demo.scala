@@ -13,9 +13,11 @@ class ConsoleWriter extends AWriter {
 }
 
 // Enclude in paragraph
-trait ParagraphWriter extends AWriter {
+trait TagWriter extends AWriter {
+	var tag = "p"
+	
 	abstract override def write(s : String) {
-		super.write("<p>" + s + "</p>")
+		super.write("<" + tag + ">" + s + "</" + tag + ">")
 	}
 }
 
@@ -34,10 +36,14 @@ trait EmphasizedWriter extends AWriter {
 
 object ScalaTraits {
   def main(args: Array[String]): Unit = { 
-	  val emph = (new ConsoleWriter with ParagraphWriter with EmphasizedWriter)
+	  val emph = (new ConsoleWriter with TagWriter with EmphasizedWriter)
+	  emph.tag = "h1"
 	  emph.write("Hello world!")
 	  
-	  val nonEmph = (new ConsoleWriter with ParagraphWriter)
-	  nonEmph.write("Goodbye")
+	  val nonEmph = (new ConsoleWriter with TagWriter)
+	  nonEmph.write("This is some text")
+	  
+	  val simple = new ConsoleWriter
+	  simple.write("this is a comment")
   }
 }
