@@ -1,4 +1,5 @@
 package it.jugancona.scalademo
+import scala.collection._
 
 object MapAll {
 	def main(args : Array[String]) {
@@ -29,17 +30,21 @@ object MapAll {
 				"sconosciuto"
 		println("\nCapoluogo sardo: " + capoluogoSardo)
 		
+		assert(capoluogoSardo == italiaInsulare.getOrElse("Sardegna", "sconosciuto"))
+		
 		val italiaCentroInsulare = italiaCentrale ++ italiaInsulare
 		println("Italia Centro e Isole: " + italiaCentroInsulare.mkString(", "))
 		
+		//*****************************
 		// Riassegnamento di immutabili
 		var numbers = Map(1 -> "uno")
 		numbers += (2 -> "due")
 		println("\nNumeri" + numbers)
 		
+		//******************************
 		// Mutabili thread-safe
-		val stati = new scala.collection.mutable.HashMap[String, String] 
-			with scala.collection.mutable.SynchronizedMap[String, String] {
+		val stati = new mutable.HashMap[String, String] 
+			with mutable.SynchronizedMap[String, String] {
 				override def default(key: String) = key + " esiste?"
 			}
 		stati += ("Italia" -> "Roma")
@@ -48,6 +53,7 @@ object MapAll {
 		println(stati.keySet.mkString("\nStati conosciuti: ", ", ", "\n"))
 		
 		var capitaleDiElbonia = stati("Elbonia")
-		println("> Qual è la capitale di Elbonia? \n< " + capitaleDiElbonia)
+		println("> Qual è la capitale di Elbonia?")
+		println("< " + capitaleDiElbonia)
 	}
 }

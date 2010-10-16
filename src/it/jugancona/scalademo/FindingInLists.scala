@@ -6,14 +6,16 @@ object FindingInLists {
 		
 		val a = List.range(1, 10)
 		
-		findAndPrint(a, 4)
-		findAndPrint(a, 12)
+		println(findAndMakeString(a, 4))
+		println(findAndMakeString(a, 12))
 	}
 	
-	def findAndPrint[T](list: List[T], toFind : T) {
-		list.find(a => a == toFind) match {
-			case Some(found) => println(found + " ok!")
-			case None => println("not found: " + toFind)
+	def findAndMakeString[T](list: List[T], toFind : T) = {
+		val found = list.find(a => a == toFind)
+		
+		found match {
+			case Some(found) => found + " ok!"
+			case None => "not found: " + toFind
 		}
 	}
 }

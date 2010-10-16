@@ -1,14 +1,14 @@
 package it.jugancona.scalademo
 
-class HelloWorld {
-	println("Hello World !")
+class StupidPrinter(s : String) {
+	println(s)
 }
 
 object Hello {
 	
-	def main(args: Array[String]): Unit = {
+	def main(args: Array[String]) {
 		
-		val hw = new HelloWorld
+		val hw = new StupidPrinter("Hello World!")
 		
 	}
 }
